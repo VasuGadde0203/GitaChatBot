@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Gita Bot</title>
+  <link rel="stylesheet" href="../css/register_style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form id="registerForm">
+      <h2>Register</h2>
+      <div class="input-field">
+        <input type="text" id="name" required>
+        <label>Enter your name</label>
+      </div>
+      <div class="input-field">
+        <input type="email" id="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" required>
+        <label>Create a password</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="confirmPassword" required>
+        <label>Confirm your password</label>
+      </div>
+      <button type="submit">Register</button>
+      <div class="register">
+        <p>Already have an account? <a href="../html/login.html">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script src="../js/script_auth.js"></script>
+</body>
+</html>

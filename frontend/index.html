@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/@codingnepal -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gita GPT</title>
+    <!-- Linking Google Fonts For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@32,400,0,0" />
+    <link rel="stylesheet" href="style.css" />
+  
+  </head>
+  <body>
+    <div class="container">
+      <!-- Logout Icon -->
+      <div class="logout-icon">
+        <span id="logout-btn" class="material-symbols-rounded">logout</span>
+      </div>
+
+      <!-- App Header -->
+      <header class="app-header">
+        <h1 class="heading"></h1>
+        <h4 class="sub-heading">Ask me anything about the Bhagavad Gita</h4>
+      </header>
+
+      <ul class="suggestions">
+        <li class="suggestions-item">
+            <p class="text">What is the essence of Bhagavad Gita in one verse?</p>
+            <span class="icon material-symbols-rounded">menu_book</span>
+        </li>
+        <li class="suggestions-item">
+            <p class="text">Explain the concept of Karma Yoga in simple terms.</p>
+            <span class="icon material-symbols-rounded">self_improvement</span>
+        </li>
+        <li class="suggestions-item">
+            <p class="text">How can I apply Gita's teachings in daily life?</p>
+            <span class="icon material-symbols-rounded">lightbulb</span>
+        </li>
+        <li class="suggestions-item">
+            <p class="text">What does Krishna say about meditation in the Gita?</p>
+            <span class="icon material-symbols-rounded">spa</span>
+        </li>
+    </ul>
+    
+      <!-- Chats -->
+      <div class="chats-container"></div>
+      <!-- Prompt Input -->
+      <div class="prompt-container">
+        <div class="prompt-wrapper">
+          <form action="#" class="prompt-form">
+            <input type="text" placeholder="Ask krishna..." class="prompt-input" required />
+            <div class="prompt-actions">
+              <!-- File Upload Wrapper -->
+              <div class="file-upload-wrapper">
+                <img src="#" class="file-preview" />
+                <input id="file-input" type="file" accept="image/*, .pdf, .txt, .csv" hidden />
+                <button type="button" class="file-icon material-symbols-rounded">description</button>
+                <button id="cancel-file-btn" type="button" class="material-symbols-rounded">close</button>
+                <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file</button>
+              </div>
+              <!-- Send Prompt and Stop Response Buttons -->
+              <button id="stop-response-btn" type="button" class="material-symbols-rounded">stop_circle</button>
+              <button id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
+            </div>
+          </form>
+          <!-- Theme and Delete Chats Buttons -->
+          <button id="theme-toggle-btn" class="material-symbols-rounded">light_mode</button>
+          <button id="delete-chats-btn" class="material-symbols-rounded">delete</button>
+        </div>
+        <p class="disclaimer-text">Bot can make mistakes, so double-check it.</p>
+      </div>
+    </div>
+
+    <!-- Logout Confirmation Popup -->
+    <div id="logout-popup" class="popup">
+      <div class="popup-content">
+        <p>Do you want to logout?</p>
+        <div class="popup-buttons">
+          <button id="confirm-logout">Confirm</button>
+          <button id="cancel-logout">Cancel</button>
+        </div>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
