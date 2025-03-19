@@ -4,11 +4,11 @@
 ## Project Overview
 - GitaChatBot is an AI-powered chatbot built using FastAPI, Gemini Model, and Vector Databases.
 - It allows users to:
-  ✔️ Ask questions about life and philosophy, inspired by the Bhagavad Gita
-  ✔️ Register, log in, and manage their accounts
-  ✔️ Get responses based on embeddings stored in FAISS and S3
-  ✔️ Interact via text, with future support for voice conversations
-  ✔️ Expand knowledge from additional training books
+  - ✔️ Ask questions about life and philosophy, inspired by the Bhagavad Gita
+  - ✔️ Register, log in, and manage their accounts
+  = ✔️ Get responses based on embeddings stored in FAISS and S3
+  = ✔️ Interact via text, with future support for voice conversations
+  - ✔️ Expand knowledge from additional training books
 
 ## Tech Stack
 - **Frontend**
