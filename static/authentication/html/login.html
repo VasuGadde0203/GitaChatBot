@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitaGPT | Login Form</title>
+  <link rel="stylesheet" href="/static/authentication/css/login_style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form id="loginForm">
+      <h2>Login</h2>
+        <div class="input-field">
+        <input type="email" id="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" required>
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+      </div>
+    </form>
+  </div>
+  <!-- Inline JavaScript for Debugging -->
+  <script>
+    API_URL = 'http://localhost:8000'
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("Inline script loaded!");
+
+      let loginForm = document.getElementById("loginForm");
+
+      if (!loginForm) {
+        console.error("loginForm not found!");
+        return;
+      }
+
+      loginForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        console.log("Form submitted!");
+
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        console.log("Email:", email);
+        console.log("Password:", password);
+
+        let userData = { email, password };
+
+        try {
+          console.log("Making API call...");
+          let response = await fetch(`${API_URL}/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userData),
+          });
+
+          console.log("Response status:", response.status);
+
+          let result = await response.json();
+          console.log("API Response:", result);
+
+          if (result.success === "False") {
+            alert(result.message); // Show error message
+          } else {
+            alert(result.message); // Show success message
+            setTimeout(() => {
+                // Store the user's name in localStorage
+                localStorage.setItem("user_name", result.user_name);
+                localStorage.setItem("user_id", result.user_id)
+                // Redirect to index.html
+                window.location.href = "/static/index.html";
+            }, 2000);
+          }
+        } catch (error) {
+          console.error("Fetch error:", error);
+          alert("API call failed! Check console.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
