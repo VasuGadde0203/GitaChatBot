@@ -172,7 +172,7 @@ from pydantic import BaseModel
 from dotenv import load_dotenv
 import openai
 from pinecone import Pinecone, ServerlessSpec
-from bson import ObjectId
+from pymongo.bson import ObjectId
 from database import *
 from typing import Optional
 
