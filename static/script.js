@@ -1,7 +1,7 @@
 // -------------------- USER GREETING --------------------
 let userName = localStorage.getItem("user_name");
 let headingElement = document.querySelector(".heading");
-
+console.log("In js")
 if (userName && userName !== "undefined") {
   headingElement.innerText = `Hello ${userName}! Welcome to Gita Bot!`;
 } else {
@@ -28,7 +28,7 @@ const confirmExit = document.getElementById("confirm-exit");
 const cancelExit = document.getElementById("cancel-exit");
 
 // -------------------- CONFIG --------------------
-const API_URL = "http://127.0.0.1:8000/bot/generate/";
+const API_URL = "http://localhost:8000";
 let controller, typingInterval;
 const chatHistory = [];
 const userData = { message: "", file: {} };
@@ -104,7 +104,8 @@ const generateResponse = async (botMsgDiv) => {
     enterChatView(); // Ensure we’re in chat view
 
     let userId = localStorage.getItem("user_id");
-    const response = await fetch(API_URL, {
+    console.log("calling bot")
+    const response = await fetch(`${API_URL}/bot/generate/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: userData.message, user_id: userId }),
@@ -159,7 +160,7 @@ const handleFormSubmit = (e) => {
 
   setTimeout(() => {
     const botMsgHTML = `
-      <img class="avatar" src="/static/krishna.png" />
+      <img class="avatar" src="krishna.png" />
       <p class="message-text">Just a sec...</p>
     `;
     const botMsgDiv = createMessageElement(botMsgHTML, "bot-message", "loading");
@@ -243,7 +244,7 @@ confirmLogout.addEventListener("click", () => {
   localStorage.removeItem("user_name");
   localStorage.removeItem("user_id");
   setTimeout(() => {
-    window.location.href = "/static/authentication/html/login.html";
+    window.location.href = "/authentication/html/login.html";
   }, 1000);
 });
 
