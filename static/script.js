@@ -28,7 +28,7 @@ const confirmExit = document.getElementById("confirm-exit");
 const cancelExit = document.getElementById("cancel-exit");
 
 // -------------------- CONFIG --------------------
-const API_URL = "http://localhost:8000";
+const API_URL = "";
 let controller, typingInterval;
 const chatHistory = [];
 const userData = { message: "", file: {} };
