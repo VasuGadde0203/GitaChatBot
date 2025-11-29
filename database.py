@@ -1,13 +1,14 @@
 from pymongo import MongoClient
 from datetime import datetime
 import os 
-from pymongo.bson import ObjectId
+from bson import ObjectId
 from dotenv import load_dotenv
 
 load_dotenv()
 
 # MongoDB Connection (Replace with your credentials)
 MONGO_URI = os.getenv("MONGO_CONNECTION_STRING")
+print(MONGO_URI)
 
 client = MongoClient(MONGO_URI)
 db = client["GitaBot"]  # Database name

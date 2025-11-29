@@ -14,8 +14,8 @@ const container = document.querySelector(".container");
 const chatsContainer = document.querySelector(".chats-container");
 const promptForm = document.querySelector(".prompt-form");
 const promptInput = promptForm.querySelector(".prompt-input");
-const fileInput = promptForm.querySelector("#file-input");
-const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
+// const fileInput = promptForm.querySelector("#file-input");
+// const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
 const themeToggleBtn = document.querySelector("#theme-toggle-btn");
 const logoutBtn = document.getElementById("logout-btn");
 const logoutPopup = document.getElementById("logout-popup");
@@ -140,7 +140,7 @@ const handleFormSubmit = (e) => {
   userData.message = userMessage;
   promptInput.value = "";
   document.body.classList.add("chats-active", "bot-responding");
-  fileUploadWrapper.classList.remove("file-attached", "img-attached", "active");
+  // fileUploadWrapper.classList.remove("file-attached", "img-attached", "active");
 
   // User message
   const userMsgHTML = `
@@ -160,7 +160,7 @@ const handleFormSubmit = (e) => {
 
   setTimeout(() => {
     const botMsgHTML = `
-      <img class="avatar" src="krishna.png" />
+      <img class="avatar" src="/static/krishna.png" />
       <p class="message-text">Just a sec...</p>
     `;
     const botMsgDiv = createMessageElement(botMsgHTML, "bot-message", "loading");
@@ -171,25 +171,25 @@ const handleFormSubmit = (e) => {
 };
 
 // -------------------- FILE HANDLING --------------------
-fileInput.addEventListener("change", () => {
-  const file = fileInput.files[0];
-  if (!file) return;
-  const isImage = file.type.startsWith("image/");
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = (e) => {
-    fileInput.value = "";
-    const base64String = e.target.result.split(",")[1];
-    fileUploadWrapper.querySelector(".file-preview").src = e.target.result;
-    fileUploadWrapper.classList.add("active", isImage ? "img-attached" : "file-attached");
-    userData.file = { fileName: file.name, data: base64String, mime_type: file.type, isImage };
-  };
-});
+// fileInput.addEventListener("change", () => {
+//   const file = fileInput.files[0];
+//   if (!file) return;
+//   const isImage = file.type.startsWith("image/");
+//   const reader = new FileReader();
+//   reader.readAsDataURL(file);
+//   reader.onload = (e) => {
+//     fileInput.value = "";
+//     const base64String = e.target.result.split(",")[1];
+//     fileUploadWrapper.querySelector(".file-preview").src = e.target.result;
+//     fileUploadWrapper.classList.add("active", isImage ? "img-attached" : "file-attached");
+//     userData.file = { fileName: file.name, data: base64String, mime_type: file.type, isImage };
+//   };
+// });
 
-document.querySelector("#cancel-file-btn").addEventListener("click", () => {
-  userData.file = {};
-  fileUploadWrapper.classList.remove("file-attached", "img-attached", "active");
-});
+// document.querySelector("#cancel-file-btn").addEventListener("click", () => {
+//   userData.file = {};
+//   fileUploadWrapper.classList.remove("file-attached", "img-attached", "active");
+// });
 
 // -------------------- STOP BOT RESPONSE --------------------
 document.querySelector("#stop-response-btn").addEventListener("click", () => {
@@ -233,7 +233,7 @@ document.addEventListener("click", ({ target }) => {
 });
 
 promptForm.addEventListener("submit", handleFormSubmit);
-promptForm.querySelector("#add-file-btn").addEventListener("click", () => fileInput.click());
+// promptForm.querySelector("#add-file-btn").addEventListener("click", () => fileInput.click());
 
 // -------------------- LOGOUT FUNCTIONALITY --------------------
 logoutBtn.addEventListener("click", () => {
